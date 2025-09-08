@@ -1,6 +1,6 @@
-# 🗳️ Desafio Votação — Frontend Angular
+#  Desafio Votação — Frontend Angular
 
-## 📍 Visão Geral
+##  Visão Geral
 
 Este projeto representa o frontend da aplicação de votação, desenvolvida em **Angular 19+**, com foco em comunicação eficiente com o backend via **API REST**. O objetivo é permitir que usuários visualizem pautas, participem de sessões de votação e acompanhem os resultados.
 
@@ -8,7 +8,7 @@ A interface foi construída com foco em responsividade, clareza na navegação e
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Angular 19.2+**
 - **RxJS 7.8**
@@ -19,7 +19,7 @@ A interface foi construída com foco em responsividade, clareza na navegação e
 
 ---
 
-## 📦 Instalação e Execução
+## Instalação e Execução
 
 ### Pré-requisitos
 
@@ -28,7 +28,6 @@ A interface foi construída com foco em responsividade, clareza na navegação e
 
 ### Passos
 
-```bash
 # Clonar o repositório
 git https://github.com/italonascimento89/desafio-db-angular-node.git
 
@@ -38,11 +37,11 @@ npm install
 # Executar o projeto
 ng start
 
-## 🧪 Testes Automatizados
+### Testes Automatizados
 
 Para executar os testes unitários com relatório de cobertura, utilize o comando:
 
-```bash
 npm run test
+
 
 
