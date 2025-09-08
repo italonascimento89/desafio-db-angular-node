@@ -1,0 +1,25 @@
+<div class="mb-3 mt-3">
+  <div class="form-outline" [appValidationState]="control">
+    <label class="form-label" [attr.for]="id" [style.backgroundColor]="labelBackgroundColor">{{
+      label
+    }}</label>
+
+    <select class="form-select" [id]="id" [name]="name" [formControl]="control">
+      @if (placeholder) {
+      <option selected [value]="'TODAS'">
+        {{ placeholder }}
+      </option>
+      } @for (option of options; track idx; let idx = $index) {
+      <option [value]="option.value">
+        {{ option.label }}
+      </option>
+      }
+    </select>
+  </div>
+
+  <app-input-error
+    [field]="control"
+    [label]="label"
+    [skipValidation]="skipValidation"
+  ></app-input-error>
+</div>

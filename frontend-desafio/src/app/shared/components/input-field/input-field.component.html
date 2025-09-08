@@ -1,0 +1,22 @@
+<div [class]="class">
+  <label [attr.for]="id" class="form-label">{{ label }}</label>
+
+  <input
+    [appValidationState]="control"
+    [type]="type"
+    [id]="id"
+    [name]="name"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    [mask]="mask"
+    (blur)="onBlur($event)"
+    class="form-control"
+    autocomplete="off"
+  />
+
+  <app-input-error
+    [field]="control"
+    [label]="label"
+    [skipValidation]="skipValidation"
+  ></app-input-error>
+</div>

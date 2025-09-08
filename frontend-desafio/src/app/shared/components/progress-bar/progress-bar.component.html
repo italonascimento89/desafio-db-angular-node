@@ -1,0 +1,17 @@
+<div class="progress" [ngStyle]="{ height: height }">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [ngClass]="[
+      'bg-' + variant,
+      striped ? 'progress-bar-striped' : '',
+      animated ? 'progress-bar-animated' : ''
+    ]"
+    [ngStyle]="{ width: value + '%' }"
+    [attr.aria-valuenow]="value"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  >
+    <ng-container *ngIf="label">{{ label }}</ng-container>
+  </div>
+</div>

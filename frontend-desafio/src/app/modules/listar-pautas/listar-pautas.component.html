@@ -1,0 +1,41 @@
+<section class="my-3">
+  @if (categorias$ | async; as categorias) {
+  <app-select-field
+    [id]="'categoria'"
+    [name]="'categoria'"
+    [label]="'Categoria'"
+    [placeholder]="'Todas'"
+    [control]="form.controls.categoria"
+    [options]="categorias"
+  ></app-select-field>
+  }
+</section>
+
+@if (pautas$ | async; as pautas) {
+<ng-container
+  *ngTemplateOutlet="
+    pautas.pautas.length ? listaTemplate : feedbackTemplate;
+    context: { $implicit: pautas }
+  "
+>
+</ng-container>
+}
+
+<ng-template #listaTemplate let-pautas>
+  <section class="row">
+    @for (pauta of pautas.pautas; track pauta.id; let idx = $index) {
+    <div class="col-md-4 g-3">
+      <app-pauta-card [pauta]="pauta" (acao)="onAcaoPauta($event)" />
+    </div>
+    }
+  </section>
+</ng-template>
+
+<ng-template #feedbackTemplate>
+  <app-feedback
+    title="Ops!"
+    message="Não há registros disponíveis para exibir nesta seção."
+    icon="bi bi-inbox"
+  >
+  </app-feedback>
+</ng-template>

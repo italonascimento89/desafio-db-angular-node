@@ -1,0 +1,9 @@
+@use 'bootstrap/scss/bootstrap';
+@use './app/shared/styles/colors';
+@use 'bootstrap-icons/font/bootstrap-icons.css';
+@use 'ngx-toastr/toastr';
+
+html,
+body {
+  height: 100dvh;
+}

@@ -1,0 +1,11 @@
+<section class="text-center text-muted p-4">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <ng-container *ngIf="icon">
+      <i [class]="icon + ' mb-3 fs-1 text-secondary'"></i>
+    </ng-container>
+
+    <h5 class="fw-semibold" *ngIf="title">{{ title }}</h5>
+
+    <p class="mb-0">{{ message }}</p>
+  </div>
+</section>

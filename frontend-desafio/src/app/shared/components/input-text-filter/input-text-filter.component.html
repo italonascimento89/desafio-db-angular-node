@@ -1,0 +1,17 @@
+<div class="text-filter">
+  <input
+    [id]="id"
+    [name]="name"
+    [type]="type"
+    [class]="class"
+    [attr.maxlength]="maxlength"
+    [attr.minlength]="minlength"
+    [attr.autocomplete]="autocomplete"
+    [attr.autofocus]="autofocus ? true : null"
+    [attr.disabled]="disabled ? true : null"
+    [attr.readonly]="readonly ? true : null"
+    [placeholder]="placeholder"
+    [formControl]="searchControl"
+    (blur)="onBlur($event)"
+  />
+</div>

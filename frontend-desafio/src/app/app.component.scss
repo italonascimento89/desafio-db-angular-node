@@ -1,0 +1,19 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+.loading.gif {
+  background: url('../app/assets/imgs/loading.gif') center center no-repeat;
+  background-size: 128px;
+  z-index: 1056;
+}
+
+.loading.overlay {
+  opacity: 0.5;
+  background-color: #2d2b30;
+  z-index: 1056;
+}

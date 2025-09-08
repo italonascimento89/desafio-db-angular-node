@@ -1,0 +1,57 @@
+<app-card [title]="'Criar uma Pauta'">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @if (categorias$ | async; as categorias) {
+    <app-select-field
+      [id]="'categoria'"
+      [name]="'categoria'"
+      [label]="'Categoria'"
+      [placeholder]="'Selecione uma opção'"
+      [control]="form.controls.categoria"
+      [options]="categorias"
+    ></app-select-field>
+    }
+
+    <app-input-field
+      [class]="'mb-3'"
+      [id]="'titulo-pauta'"
+      [name]="'titulo-pauta'"
+      [type]="'text'"
+      [label]="'Título da Pauta'"
+      [control]="form.controls.titulo"
+    >
+    </app-input-field>
+
+    <app-input-field
+      [class]="'mb-3'"
+      [id]="'descricao'"
+      [name]="'descricao'"
+      [type]="'text'"
+      [label]="'Descrição'"
+      [control]="form.controls.descricao"
+    >
+    </app-input-field>
+
+    <app-input-field
+      [class]="'mb-3'"
+      [id]="'tempo-sessao'"
+      [name]="'tempo-sessao'"
+      [type]="'text'"
+      [label]="'Tempo de sessão'"
+      [mask]="'00:00'"
+      [placeholder]="'HH:MM'"
+      [control]="form.controls.sessao"
+    >
+    </app-input-field>
+
+    <div class="mt-3">
+      <app-button
+        [type]="'submit'"
+        [variant]="'primary'"
+        [size]="'lg'"
+        [block]="true"
+        [disabled]="form.invalid"
+        >Criar pauta</app-button
+      >
+    </div>
+  </form>
+</app-card>

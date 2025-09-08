@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="collapsed = !collapsed"
+      [attr.aria-expanded]="!collapsed"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" [ngClass]="{ show: !collapsed }">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngFor="let route of routes">
+          <a
+            class="nav-link"
+            [routerLink]="route.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ route.label }}
+          </a>
+        </li>
+      </ul>
+
+      @if (isLogado) {
+      <app-button
+        [type]="'button'"
+        [variant]="'light'"
+        [size]="'default'"
+        [outline]="true"
+        (clicked)="logout()"
+        >Sair</app-button
+      >
+      }
+    </div>
+  </div>
+</nav>

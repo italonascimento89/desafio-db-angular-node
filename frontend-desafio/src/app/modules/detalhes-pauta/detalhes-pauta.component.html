@@ -1,0 +1,79 @@
+<app-card>
+  @if (detalhes$ | async; as detalhes) {
+  <h4 class="card-title">{{ detalhes.nome }}</h4>
+
+  <p class="card-text text-muted">
+    {{ detalhes.descricao }}
+  </p>
+
+  <app-badge
+    [ngClass]="'me-2'"
+    [variant]="'secondary'"
+    [text]="detalhes.status_sessao === 'aberta' ? 'Sessão em andamento' : 'Sessão encerrada'"
+  />
+
+  @if (detalhes.status_sessao !== 'aberta') {
+  <app-badge
+    [variant]="detalhes.resultado === 'aprovado' ? 'success' : 'danger'"
+    [text]="detalhes.resultado | resultadoPautaLabel"
+  />
+
+  <p
+    class="mt-2 fw-bold"
+    [ngClass]="detalhes.resultado === 'aprovado' ? 'text-success' : 'text-danger'"
+  >
+    {{ detalhes | pautaResultado }}
+  </p>
+  }
+
+  <div class="mt-4">
+    <h6>Resultado da votação</h6>
+
+    <p class="text-muted mb-3">
+      {{ detalhes | totalVotos }}
+    </p>
+
+    <div class="d-flex align-items-center mb-2">
+      <span class="me-2">Sim</span>
+
+      <app-progress-bar
+        [value]="detalhes.porcentagem_sim"
+        [label]="detalhes | percentualVotos : 'sim'"
+        variant="success"
+        [striped]="true"
+        [animated]="true"
+        [height]="'1.5rem'"
+      ></app-progress-bar>
+    </div>
+
+    <div class="d-flex align-items-center">
+      <span class="me-2">Não</span>
+
+      <app-progress-bar
+        [value]="detalhes.porcentagem_nao"
+        [label]="detalhes | percentualVotos : 'nao'"
+        variant="danger"
+        [striped]="true"
+        [animated]="true"
+        [height]="'1.5rem'"
+      ></app-progress-bar>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <dl>
+      <dt>Início:</dt>
+      <dd>{{ detalhes.data_inicio | date : 'dd/MM/yyyy HH:mm' }}</dd>
+    </dl>
+
+    <dl>
+      <dt>Encerramento:</dt>
+      <dd>{{ detalhes.data_fim | date : 'dd/MM/yyyy HH:mm' }}</dd>
+    </dl>
+  </div>
+
+  <a [routerLink]="'/listar-pautas'" class="btn btn-link w-100" role="button">
+    Voltar para pautas
+  </a>
+  }
+</app-card>

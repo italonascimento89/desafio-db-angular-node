@@ -1,0 +1,17 @@
+<button
+  class="btn btn-outline"
+  [attr.type]="type"
+  [ngClass]="buttonClasses"
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
+  <ng-container *ngIf="icon && iconPosition === 'left'">
+    <i [ngClass]="icon" class="me-2"></i>
+  </ng-container>
+
+  <ng-content></ng-content>
+
+  <ng-container *ngIf="icon && iconPosition === 'right'">
+    <i [ngClass]="icon" class="ms-2"></i>
+  </ng-container>
+</button>

@@ -1,0 +1,66 @@
+<app-card [title]="'Votação'">
+  @if (pauta$ | async; as pauta) {
+  <h2 class="h5 mb-3">{{ pauta?.nome }}</h2>
+
+  <p class="text-muted mb-4">
+    {{ pauta?.descricao }}
+  </p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex-column justify-content-center gap-3 mb-3">
+      <app-input-field
+        [id]="'cpf'"
+        [name]="'cpf'"
+        [type]="'text'"
+        [label]="'CPF'"
+        [mask]="'000.000.000-00'"
+        [control]="form.controls.cpf"
+      >
+      </app-input-field>
+
+      <app-button
+        [variant]="'success'"
+        [size]="'lg'"
+        icon="bi bi-check-circle"
+        [block]="true"
+        [outline]="form.controls.cpf.invalid || form.controls.voto.value !== 'sim'"
+        (click)="selecionar('sim')"
+        [disabled]="form.controls.cpf.invalid"
+        >SIM</app-button
+      >
+
+      <app-button
+        [variant]="'danger'"
+        [size]="'lg'"
+        icon="bi bi-x-circle"
+        [block]="true"
+        [outline]="form.controls.cpf.invalid || form.controls.voto.value !== 'nao'"
+        (click)="selecionar('nao')"
+        [disabled]="form.controls.cpf.invalid"
+        >NÃO</app-button
+      >
+
+      <p class="small text-secondary mb-3">Seu voto é único e não pode ser alterado.</p>
+
+      <app-button
+        [type]="'submit'"
+        [variant]="'primary'"
+        [block]="true"
+        [disabled]="form.invalid || votoConfirmado()"
+      >
+        Confirmar Voto
+      </app-button>
+    </div>
+  </form>
+
+  @if (votoConfirmado()) {
+  <app-button [type]="'button'" [variant]="'link'" [block]="true" (clicked)="irParaDetalhes()">
+    Acessar detalhes da votação
+  </app-button>
+  }
+
+  <app-button [type]="'button'" [variant]="'link'" [block]="true" (clicked)="omVoltar()">
+    Voltar para pautas
+  </app-button>
+</app-card>

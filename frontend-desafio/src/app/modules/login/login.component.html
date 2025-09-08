@@ -1,0 +1,25 @@
+<app-card [title]="'Login'">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-input-field
+      [id]="'cpf'"
+      [name]="'cpf'"
+      [type]="'text'"
+      [label]="'CPF'"
+      [placeholder]="'000.000.000-00'"
+      [control]="form.controls.cpf"
+      [mask]="'000.000.000-00'"
+    >
+    </app-input-field>
+
+    <div class="mt-3">
+      <app-button
+        [type]="'submit'"
+        [variant]="'primary'"
+        [size]="'lg'"
+        [block]="true"
+        [disabled]="form.invalid"
+        >Acessar</app-button
+      >
+    </div>
+  </form>
+</app-card>

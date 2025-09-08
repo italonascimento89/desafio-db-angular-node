@@ -1,0 +1,5 @@
+<ng-container *ngIf="(field.errors || field.invalid) && field.touched">
+  <div class="text-danger fs-6 mt-1">
+    {{ field | formErrorMessages : label : skipValidation }}
+  </div>
+</ng-container>
