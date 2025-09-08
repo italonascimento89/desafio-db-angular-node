@@ -77,11 +77,3 @@ Apresenta o resultado da votação, total de votos por opção e status da sess�
 
 ---
 
-## Observações Finais
-
-- Certifique-se de que o backend esteja em execução e acessível pelo endereço configurado na aplicação
-- Caso utilize autenticação ou controle de usuários, ajuste interceptadores e guards conforme necessário
-- Para deploy, recomenda-se o uso de plataformas como Vercel, Netlify ou Firebase Hosting
-- Documente qualquer dependência externa ou configuração especial no README principal do projeto
-
----
