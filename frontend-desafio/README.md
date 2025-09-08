@@ -30,8 +30,18 @@ Antes de iniciar, certifique-se de que você possui as versões corretas das fer
 
 1. Faça o clone do repositório em sua máquina local.
 2. Acesse o diretório do projeto referente ao frontend.
-3. Instale as dependências utilizando o gerenciador de pacotes com utilizando o comando: npm install
-4. Inicie o servidor de desenvolvimento utilizando o comando: npm start
+3. Instale as dependências utilizando o gerenciador de pacotes
+
+```bash
+npm install
+```
+
+4. Inicie o servidor de desenvolvimento
+
+```bash
+npm start
+```
+
 5. A aplicação estará disponível em `http://localhost:4200`.
 
 ---
@@ -42,8 +52,11 @@ A aplicação inclui testes unitários que validam regras de negócio, component
 
 Ao rodar os testes, será gerado automaticamente um relatório de cobertura na pasta `coverage`, permitindo visualizar quais partes do código estão devidamente testadas.
 
-Para executar os testes unitários com relatório de cobertura, utilize o comando: npm run test
+Para executar os testes unitários com relatório de cobertura
 
+```bash
+npm run test
+```
 
 ## Telas Implementadas
 
@@ -76,4 +89,3 @@ Apresenta o resultado da votação, total de votos por opção e status da sess�
 - Testes automatizados com cobertura mínima recomendada
 
 ---
-
