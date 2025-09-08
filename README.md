@@ -1,6 +1,6 @@
-# 🗳️ Projeto de Votação — Angular + Node.js
+# Projeto de Votação — Angular + Node.js
 
-## 📍 Visão Geral
+## Visão Geral
 
 Este repositório contém uma aplicação completa de votação, dividida em duas partes principais:
 
@@ -11,16 +11,17 @@ A aplicação permite o cadastro de pautas, abertura de sessões de votação, r
 
 ---
 
-## 📁 Estrutura do Repositório
-/ ├── frontend/ → Interface web em Angular
-  ├── backend/ → API REST em Node.js └── README.md → Este arquivo
-  └── README.md → Este arquivo
+## Estrutura do Repositório
 
+O projeto está dividido em duas pastas principais:
+
+- A pasta `frontend` contém a interface web desenvolvida em Angular.
+- A pasta `backend` contém a API REST desenvolvida em Node.js com Express.
 Cada pasta possui seu próprio README com instruções detalhadas de instalação, execução e testes.
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 Para rodar a aplicação completa, siga os passos abaixo:
 
@@ -30,9 +31,9 @@ Para rodar a aplicação completa, siga os passos abaixo:
 
 ---
 
-## 📄 Documentação Detalhada
+## Documentação Detalhada
 
-- [📦 Backend — Node.js](./backend/README.md)
-- [🎨 Frontend — Angular](./frontend/README.md)
+- [Backend — Node.js](./backend/README.md)
+- [Frontend — Angular](./frontend/README.md)
 
 ---
