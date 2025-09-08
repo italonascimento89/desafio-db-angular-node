@@ -30,10 +30,3 @@ Para rodar a aplicação completa, siga os passos abaixo:
 3. Certifique-se de que o backend esteja rodando antes de iniciar o frontend, para garantir a comunicação entre as partes.
 
 ---
-
-## Documentação Detalhada
-
-- [Backend — Node.js](./backend/README.md)
-- [Frontend — Angular](./frontend/README.md)
-
----
