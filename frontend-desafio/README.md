@@ -30,7 +30,7 @@ A interface foi construída com foco em responsividade, clareza na navegação e
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/desafio-votacao.git
+git https://github.com/italonascimento89/desafio-db-angular-node.git
 
 # Acessar o diretório do frontend
 cd desafio-votacao/frontend
