@@ -1,60 +1,93 @@
-## Node versão
-`v20.19.4`
+# Desafio Votação — Backend Node.js
 
-## Docker versão
-`Docker version 28.3.3`
+## Visão Geral
 
-## Subir bando de dados com docker
-`docker compose up -d`
+Este projeto representa o backend da aplicação de votação, desenvolvido em Node.js com arquitetura modular e suporte a ES Modules. Ele é responsável por gerenciar as regras de negócio, persistência de dados e comunicação com o frontend via API REST.
 
-## Instalar pacotes
-`npm install`
+A aplicação permite o cadastro de pautas, abertura de sessões de votação, registro de votos por CPF único e apuração dos resultados. Toda a comunicação é feita em formato JSON, e a documentação da API está disponível via Swagger.
 
-## Executar migrate
-`npm run migrate`
+---
 
-## Executar aplicação
-`npm start`
+## Tecnologias Utilizadas
 
-## Executar testes
-`npm test`
+- Node.js (versões compatíveis: ^18.19.1, ^20.11.1 ou ^22.0.0)
+- Express para gerenciamento de rotas e middlewares
+- Sequelize como ORM para PostgreSQL
+- dotenv para gerenciamento de variáveis de ambiente
+- Swagger para documentação da API
+- Jest e Supertest para testes automatizados
+- Babel para suporte a ES Modules e transpilação
 
-## Usuarios cadastrados no sistema
-### Admin: `659.652.350-03`
-### Votante: `536.833.990-90`
+---
 
-## Arquitetura
-```
-src/
- ├─ controllers/
- │   ├─ userController.js
- │   ├─ categoriaController.js
- │   ├─ pautaController.js
- │   └─ votoController.js
- ├─ services/
- │   ├─ categoriaService.js
- │   ├─ userService.js
- │   ├─ pautaService.js
- │   └─ votoService.js
- ├─ repositories/
- │   ├─ categoriaRepository.js
- │   ├─ userRepository.js
- │   ├─ pautaRepository.js
- │   └─ votoRepository.js
- ├─ routes/
- │   ├─ categoriaRoutes.js
- │   ├─ userRoutes.js
- │   ├─ pautaRoutes.js
- │   └─ votoRoutes.js
- ├─ models/
- │   ├─ Categoria.js
- │   ├─ User.js
- │   ├─ Pauta.js
- │   └─ Voto.js
-```
+## Instalação e Execução
 
-## Libs utilizada
-`dotenv` para utilizar variaveis de ambiente com .env .
-`sequelize` ORM para database.
-`jest` utilizado para teste unitários.
-`babel` utilizado para exports das class.
+Antes de iniciar, certifique-se de que você possui uma versão compatível do Node.js instalada em sua máquina.
+
+Para executar o projeto localmente, siga os seguintes passos:
+
+1. Faça o clone do repositório em sua máquina.
+2. Acesse o diretório correspondente ao backend.
+3. Instale todas as dependências utilizando o gerenciador de pacotes utilizando o comando: npm install
+5. Execute o comando de migração para criar as tabelas no banco de dados utilizando o comando: npm run migrate.
+6. Inicie o servidor da aplicação utilizando o comando: npm start.
+7. A API estará disponível localmente na porta definida, pronta para ser consumida pelo frontend.
+
+---
+
+## Testes Automatizados
+
+O backend inclui testes automatizados que validam regras de negócio, rotas e integrações com o banco de dados. Os testes foram escritos com Jest e Supertest.
+
+Para executar os testes, utilize o comando de teste padrão definido no projeto. Basta rodar "npm run test" no terminal. Isso iniciará o ambiente de testes e exibirá os resultados diretamente no console.
+
+Os testes cobrem cenários como:
+
+- Cadastro e listagem de pautas
+- Abertura e encerramento de sessões de votação
+- Registro de votos com validação de CPF e unicidade
+- Apuração e retorno do resultado da votação
+
+A cobertura mínima recomendada é de 80%.
+
+---
+
+## Endpoints Principais
+
+A API REST expõe os seguintes recursos:
+
+- Cadastro de pauta
+- Abertura de sessão de votação
+- Registro de voto (Sim/Não)
+- Consulta de resultado da pauta
+- Listagem de pautas com sessões abertas
+
+Todos os endpoints aceitam e retornam dados em formato JSON. A documentação completa está disponível via Swagger na rota padrão `/api-docs`.
+
+---
+
+## Boas Práticas Adotadas
+
+- Separação clara entre camadas de controller, service e repository
+- Tratamento de erros centralizado
+- Uso de UUID para identificação única de registros
+- Persistência segura e durável dos dados com Sequelize
+- Testes automatizados com cobertura mínima recomendada
+- Documentação da API gerada automaticamente com Swagger
+
+---
+
+## Usuários Cadastrados no Sistema
+
+O sistema já está pré-configurado com dois usuários para fins de teste e validação das funcionalidades:
+
+### Admin  
+CPF: `659.652.350-03`  
+Este usuário possui permissões administrativas, como criação de pautas e abertura de sessões de votação.
+
+### Votante  
+CPF: `536.833.990-90`  
+Este usuário pode participar das votações, registrando seu voto em pautas abertas.
+
+Esses CPFs podem ser utilizados diretamente nas requisições para simular os fluxos de votação e administração.
+
