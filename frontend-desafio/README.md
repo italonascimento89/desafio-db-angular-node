@@ -32,11 +32,17 @@ A interface foi construída com foco em responsividade, clareza na navegação e
 # Clonar o repositório
 git https://github.com/italonascimento89/desafio-db-angular-node.git
 
-# Acessar o diretório do frontend
-cd desafio-votacao/frontend
-
 # Instalar dependências
 npm install
 
 # Executar o projeto
-ng serve
+ng start
+
+## 🧪 Testes Automatizados
+
+Para executar os testes unitários com relatório de cobertura, utilize o comando:
+
+```bash
+npm run test
+
+
