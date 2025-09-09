@@ -8,6 +8,15 @@ A aplicação permite o cadastro de pautas, abertura de sessões de votação, r
 
 ---
 
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de que os seguintes softwares estejam instalados em sua máquina:
+
+- Node.js (versões compatíveis: ^18.19.1, ^20.11.1 ou ^22.0.0)
+- Docker e Docker Compose (necessários para subir o banco de dados via container)
+
+---
+
 ## Tecnologias Utilizadas
 
 - Node.js (versões compatíveis: ^18.19.1, ^20.11.1 ou ^22.0.0)
