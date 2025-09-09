@@ -49,7 +49,7 @@ docker-compose up -d
 npm install
 ```
 
-5. Execute o comando de migração para criar as tabelas no banco de dados utilizando o comando: npm run migrate
+5. Execute o comando de migração para criar as tabelas no banco de dados
 
 ```bash
  npm run migrate
