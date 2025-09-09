@@ -28,12 +28,30 @@ Para executar o projeto localmente, siga os seguintes passos:
 
 1. Faça o clone do repositório em sua máquina.
 2. Acesse o diretório correspondente ao backend.
-3. Instale todas as dependências utilizando o gerenciador de pacotes utilizando o comando: npm install
-5. Execute o comando de migração para criar as tabelas no banco de dados utilizando o comando: npm run migrate.
-6. Inicie o servidor da aplicação utilizando o comando: npm start.
-7. A API estará disponível localmente na porta definida, pronta para ser consumida pelo frontend.
+3. Instale todas as dependências utilizando o gerenciador de pacotes
 
----
+```bash
+npm install
+```
+
+5. Execute o comando de migração para criar as tabelas no banco de dados utilizando o comando: npm run migrate
+
+```bash
+ npm run migrate
+```
+
+6. Inicie o servidor da aplicação
+
+```bash
+ npm start
+```
+
+## Endpoints da API
+
+Após iniciar o servidor backend, você verá no console:
+
+API rodando em http://localhost:3000  
+Swagger disponível em http://localhost:3000/api-docs
 
 ## Testes Automatizados
 
