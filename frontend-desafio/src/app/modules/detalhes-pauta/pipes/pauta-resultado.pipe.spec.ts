@@ -91,6 +91,6 @@ describe('PautaResultadoPipe', () => {
   it('deve lidar com valores indefinidos sem lançar erro', () => {
     const pauta: any = { resultado: undefined, porcentagem_nao: 0, porcentagem_sim: 0 };
     const resultado = pipe.transform(pauta);
-    expect(resultado).toBe('Sessão encerrada. Pauta reprovada com 0% de votos');
+    expect(resultado).toBe('Sessão encerrada. Resultado desconhecido');
   });
 });
