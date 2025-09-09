@@ -18,8 +18,6 @@ export class ResultadoPautaLabelPipe implements PipeTransform {
       return '--';
     }
 
-    console.log(resultado);
-
     return this.RESULTADO_LABEL_MAP[resultado] ?? 'Resultado desconhecido';
   }
 }
