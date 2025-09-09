@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { debounceTime, Observable, tap } from 'rxjs';
+import { debounceTime, Observable, Subject, takeUntil, tap } from 'rxjs';
 
 import { PathRoutes } from '@app/shared/constants/routes.contant';
 import { IPaginacaoPauta, IPauta } from '@app/shared/interfaces/pautas.interface';
@@ -25,12 +25,13 @@ import { SelectFieldComponent } from '@app/shared/components/select-field/select
   templateUrl: './listar-pautas.component.html',
   styleUrl: './listar-pautas.component.scss',
 })
-export class ListarPautasComponent implements OnInit {
+export class ListarPautasComponent implements OnInit, OnDestroy {
   public pautas$!: Observable<IPaginacaoPauta>;
   public categorias$!: Observable<ISelectOption<string>[]>;
   public form!: FormGroup<{
     categoria: FormControl<CategoriasType | 'TODAS' | null>;
   }>;
+  private readonly _destroy$ = new Subject<void>();
 
   constructor(
     private _request: RequestService,
@@ -44,6 +45,11 @@ export class ListarPautasComponent implements OnInit {
     this._getPautas();
     this._getCategorias();
     this._monitorarAlteracaoCategoria();
+  }
+
+  ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
   private _getPautas(): void {
@@ -77,8 +83,9 @@ export class ListarPautasComponent implements OnInit {
   private _monitorarAlteracaoCategoria(): void {
     this.form.controls.categoria.valueChanges
       .pipe(
-        debounceTime(150),
+        debounceTime(100),
         tap(() => this._getPautas()),
+        takeUntil(this._destroy$)
       )
       .subscribe();
   }
