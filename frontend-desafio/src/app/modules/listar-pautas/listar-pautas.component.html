@@ -24,7 +24,7 @@
 <ng-template #listaTemplate let-pautas>
   <section class="row">
     @for (pauta of pautas.pautas; track pauta.id; let idx = $index) {
-    <div class="col-md-4 g-3">
+    <div class="col-md-6 col-xl-4 g-3">
       <app-pauta-card [pauta]="pauta" (acao)="onAcaoPauta($event)" />
     </div>
     }
