@@ -68,6 +68,8 @@ Este usuário pode participar das votações, registrando seu voto em pautas abe
 
 Esses CPFs podem ser utilizados diretamente nas requisições para simular os fluxos de votação e administração.
 
+---
+
 ## Endpoints da API
 
 Após iniciar o servidor backend, você verá no console:
