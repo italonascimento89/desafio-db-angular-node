@@ -1,7 +1,9 @@
 @use 'bootstrap/scss/bootstrap';
-@use './app/shared/styles/colors';
 @use 'bootstrap-icons/font/bootstrap-icons.css';
 @use 'ngx-toastr/toastr';
+
+@use './app/shared/styles/variables';
+@use './app/shared/styles/typography';
 
 html,
 body {
