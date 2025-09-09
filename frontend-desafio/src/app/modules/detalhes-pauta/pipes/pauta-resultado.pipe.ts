@@ -12,7 +12,7 @@ export class PautaResultadoPipe implements PipeTransform {
     }
 
     if (value.resultado === 'anulada') {
-      return `Sessão encerrada. Pauta anulada `;
+      return `Sessão encerrada. Pauta anulada por falta de votos.`;
     }
 
     if (value.resultado === 'empate') {

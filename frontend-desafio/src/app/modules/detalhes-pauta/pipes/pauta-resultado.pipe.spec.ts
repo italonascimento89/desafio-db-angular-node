@@ -47,7 +47,7 @@ describe('PautaResultadoPipe', () => {
       total_sim: 0,
     };
     const resultado = pipe.transform(pauta);
-    expect(resultado).toBe('Sessão encerrada. Pauta anulada ');
+    expect(resultado).toBe('Sessão encerrada. Pauta anulada por falta de votos.');
   });
 
   it('deve retornar mensagem correta para pauta com empate', () => {
