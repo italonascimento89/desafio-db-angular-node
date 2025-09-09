@@ -30,3 +30,13 @@ Para rodar a aplicação completa, siga os passos abaixo:
 3. Certifique-se de que o backend esteja rodando antes de iniciar o frontend, para garantir a comunicação entre as partes.
 
 ---
+
+### Admin  
+CPF: `659.652.350-03`  
+Este usuário possui permissões administrativas, como criação de pautas e abertura de sessões de votação.
+
+### Votante  
+CPF: `536.833.990-90`  
+Este usuário pode participar das votações, registrando seu voto em pautas abertas.
+
+Esses CPFs podem ser utilizados diretamente nas requisições para simular os fluxos de votação e administração.
