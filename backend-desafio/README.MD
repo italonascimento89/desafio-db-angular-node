@@ -52,6 +52,8 @@ npm install
  npm start
 ```
 
+---
+
 ## Usuários Cadastrados no Sistema
 
 O sistema já está pré-configurado com dois usuários para fins de teste e validação das funcionalidades:
@@ -72,6 +74,8 @@ Após iniciar o servidor backend, você verá no console:
 
 API rodando em http://localhost:3000  
 Swagger disponível em http://localhost:3000/api-docs
+
+---
 
 ## Testes Automatizados
 
