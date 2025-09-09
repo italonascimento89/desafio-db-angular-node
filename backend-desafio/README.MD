@@ -52,6 +52,20 @@ npm install
  npm start
 ```
 
+## Usuários Cadastrados no Sistema
+
+O sistema já está pré-configurado com dois usuários para fins de teste e validação das funcionalidades:
+
+### Admin  
+CPF: `659.652.350-03`  
+Este usuário possui permissões administrativas, como criação de pautas e abertura de sessões de votação.
+
+### Votante  
+CPF: `536.833.990-90`  
+Este usuário pode participar das votações, registrando seu voto em pautas abertas.
+
+Esses CPFs podem ser utilizados diretamente nas requisições para simular os fluxos de votação e administração.
+
 ## Endpoints da API
 
 Após iniciar o servidor backend, você verá no console:
@@ -105,17 +119,101 @@ Todos os endpoints aceitam e retornam dados em formato JSON. A documentação co
 
 ---
 
-## Usuários Cadastrados no Sistema
+## 📌 Rotas da API
 
-O sistema já está pré-configurado com dois usuários para fins de teste e validação das funcionalidades:
+### Categorias
 
-### Admin  
-CPF: `659.652.350-03`  
-Este usuário possui permissões administrativas, como criação de pautas e abertura de sessões de votação.
+- `POST /v1/categorias`  
+  Cria uma nova categoria.  
+  Requer o campo `nome` no corpo da requisição.  
+  Retornos:
+  - 201: Categoria criada com sucesso
+  - 400: Categoria inválida
+  - 409: Categoria já cadastrada
 
-### Votante  
-CPF: `536.833.990-90`  
-Este usuário pode participar das votações, registrando seu voto em pautas abertas.
+- `GET /v1/categorias`  
+  Lista todas as categorias cadastradas.  
+  Retorno:
+  - 200: Lista de categorias no formato JSON
 
-Esses CPFs podem ser utilizados diretamente nas requisições para simular os fluxos de votação e administração.
+---
 
+### Pautas
+
+- `POST /v1/pautas`  
+  Cria uma nova pauta.  
+  Requer os campos `nome` e `id_admin`.  
+  Campos opcionais: `categoria`, `descricao`, `tempo_aberta`  
+  Retornos:
+  - 201: Pauta criada com sucesso
+  - 400: Dados inválidos
+  - 409: Conflito de cadastro
+
+- `GET /v1/pautas`  
+  Lista todas as pautas com suporte a filtros e paginação.  
+  Parâmetros opcionais:
+  - `categoria`: filtra por categoria da pauta
+  - `status`: aberta, encerrada ou todas
+  - `page`: número da página
+  - `limit`: quantidade de itens por página  
+  Retorno:
+  - 200: Lista paginada de pautas
+
+- `GET /v1/pautas/{id}`  
+  Busca os detalhes de uma pauta específica pelo seu ID.  
+  Retornos:
+  - 200: Detalhes da pauta
+  - 404: Pauta não encontrada
+
+---
+
+### Usuários
+
+- `POST /v1/users/admin`  
+  Cria um novo usuário administrador.  
+  Requer o campo `cpf` no corpo da requisição.  
+  Retornos:
+  - 201: Usuário criado com sucesso
+  - 400: CPF ou tipo inválido
+  - 409: CPF já cadastrado
+
+- `POST /v1/users/voters`  
+  Cria um novo usuário votante.  
+  Requer os campos `cpf` e `id_admin` no corpo da requisição.  
+  Retornos:
+  - 201: Usuário criado com sucesso
+  - 400: CPF ou tipo inválido
+  - 409: CPF já cadastrado
+
+- `GET /v1/users`  
+  Lista todos os usuários cadastrados.  
+  Retorno:
+  - 200: Lista de usuários no formato JSON
+
+- `GET /v1/users/{cpf}`  
+  Busca um usuário específico pelo CPF.  
+  Retornos:
+  - 200: Usuário encontrado
+  - 400: CPF inválido
+  - 404: Usuário não encontrado
+
+---
+
+### Votos
+
+- `POST /v1/votos`  
+  Registra um voto em uma pauta.  
+  Requer os campos `cpf`, `id_pauta` e `voto` no corpo da requisição.  
+  O campo `voto` deve ser `"sim"` ou `"nao"`.  
+  Retornos:
+  - 201: Voto registrado com sucesso
+  - 400: Pauta encerrada ou dados inválidos
+  - 404: Usuário ou pauta não encontrados
+  - 409: Usuário já votou nessa pauta
+
+- `GET /v1/votos/resultado/{idPauta}`  
+  Retorna o resultado da votação de uma pauta específica.  
+  Requer o parâmetro `idPauta` no caminho da URL.  
+  Retornos:
+  - 200: Resultado da votação com totais, porcentagens e status da sessão
+  - 404: Pauta não encontrada
