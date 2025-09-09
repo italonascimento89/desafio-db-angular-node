@@ -28,7 +28,13 @@ Para executar o projeto localmente, siga os seguintes passos:
 
 1. Faça o clone do repositório em sua máquina.
 2. Acesse o diretório correspondente ao backend.
-3. Instale todas as dependências utilizando o gerenciador de pacotes
+3.Execute o Docker Compose
+
+```bash
+docker-compose up -d
+```
+
+4. Instale todas as dependências utilizando o gerenciador de pacotes
 
 ```bash
 npm install
