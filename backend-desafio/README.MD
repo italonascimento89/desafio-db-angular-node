@@ -66,7 +66,11 @@ Os testes cobrem cenários como:
 - Registro de votos com validação de CPF e unicidade
 - Apuração e retorno do resultado da votação
 
-A cobertura mínima recomendada é de 80%.
+- Executar testes:
+
+```bash
+npm run test
+```
 
 ---
 
