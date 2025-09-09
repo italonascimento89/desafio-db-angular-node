@@ -90,7 +90,7 @@ router.post('/', pautaController.createPauta);
  *         name: status
  *         schema:
  *           type: string
- *         description: Status da Pauta (aberta, encerrada, todas)
+ *         description: Status da Pauta (aberta, encerrada)
  *       - in: query
  *         name: page
  *         schema:
