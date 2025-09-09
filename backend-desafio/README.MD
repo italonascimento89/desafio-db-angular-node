@@ -28,7 +28,7 @@ Para executar o projeto localmente, siga os seguintes passos:
 
 1. Faça o clone do repositório em sua máquina.
 2. Acesse o diretório correspondente ao backend.
-3.Execute o Docker Compose
+3. Execute o Docker Compose
 
 ```bash
 docker-compose up -d
