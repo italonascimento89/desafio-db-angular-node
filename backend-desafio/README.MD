@@ -66,7 +66,7 @@ Os testes cobrem cenários como:
 - Registro de votos com validação de CPF e unicidade
 - Apuração e retorno do resultado da votação
 
-- Executar testes:
+Executar testes:
 
 ```bash
 npm run test
