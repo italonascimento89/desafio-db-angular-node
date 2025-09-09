@@ -10,6 +10,8 @@ export interface IPauta {
   id: string;
   nome: string;
   descricao: string;
-  status: 'ABERTA' | 'ENCERRADA';
+  status: StatusPautaType;
   tempo_restante: number;
 }
+
+export type StatusPautaType = 'ABERTA' | 'ENCERRADA';
